@@ -1,0 +1,58 @@
+﻿.result {
+    min-width: 0;
+    min-height: 340px;
+    padding: 20px;
+    border: 1px solid #4a414c;
+    border-radius: 12px;
+    color: #f7f0f4;
+    background: linear-gradient(150deg, #28242e, #211e27 80%);
+    box-shadow: 0 15px 35px rgb(48 31 40 / 12%);
+
+    .resultHeading { display: flex; align-items: center; justify-content: space-between; gap: 9px; padding-bottom: 15px; border-bottom: 1px solid #403842; }
+    .resultHeading > div { display: flex; align-items: center; gap: 9px; }
+    .resultIcon { display: grid; width: 29px; height: 29px; place-items: center; border: 1px solid #64414c; border-radius: 9px; color: #ff9aaa; background: #392b34; }
+    .resultIcon svg { width: 14px; height: 14px; }
+    .resultHeading p { color: #b78f9a; font-size: 7px; font-weight: 800; letter-spacing: .12em; }
+    h3 { margin-top: 2px; color: #faf5f7; font-size: 13px; font-weight: 770; letter-spacing: -.02em; }
+    .status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 7px; border: 1px solid #51434b; border-radius: 30px; font-size: 7px; font-weight: 700; white-space: nowrap; }
+    .status i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+    .ready { color: #8ed4b1; background: #293c36; }
+    .waiting { color: #b7aeb5; background: #332e36; }
+    .localDate { display: grid; gap: 8px; padding: 19px 1px 16px; }
+    .localDate > span { display: flex; align-items: center; gap: 8px; color: #b99ca7; font-size: 7px; font-weight: 750; letter-spacing: .1em; }
+    .localDate b { padding: 3px 6px; border: 1px solid #50434c; border-radius: 4px; color: #dfc7d0; background: #322c35; font-family: ui-monospace, Consolas, monospace; font-size: 7px; letter-spacing: 0; }
+    .localDate strong { color: #fff7fa; font-size: clamp(14px, 1.6vw, 18px); font-weight: 720; letter-spacing: -.035em; line-height: 1.35; }
+    .localDate small { display: inline-flex; align-items: center; gap: 6px; color: #b2a7ae; font-size: 8px; }
+    .localDate small svg { width: 11px; height: 11px; color: #f08a9a; }
+    .localDate small i, .utcNote i { width: 3px; height: 3px; border-radius: 50%; background: #89737e; }
+    .detailRow { display: flex; align-items: center; justify-content: space-between; gap: 9px; padding: 10px 0; border-top: 1px solid #3d3540; }
+    .detailRow > div { display: grid; min-width: 0; gap: 4px; }
+    .detailRow span { color: #a896a0; font-size: 7px; font-weight: 760; letter-spacing: .1em; }
+    .detailRow code { overflow-wrap: anywhere; color: #e9dfe4; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 8px; }
+    .copyAction { display: inline-flex; min-height: 27px; flex: 0 0 auto; align-items: center; justify-content: center; gap: 5px; padding: 0 7px; border: 1px solid #4e4652; border-radius: 5px; color: #d8c9d1; background: #312c35; font-size: 7px; font-weight: 700; transition: border-color 140ms ease, box-shadow 140ms ease; }
+    .copyAction:hover { border-color: #d37888; box-shadow: 0 0 0 3px rgb(239 113 133 / 13%); }
+    .copyAction svg { width: 10px; height: 10px; }
+    .resultFootnote { margin-top: 9px; color: #9d9099; font-size: 7px; }
+    .emptyResult { display: grid; min-height: 235px; align-content: center; justify-items: center; gap: 7px; color: #b7aab2; text-align: center; }
+    .emptyResult > span { display: grid; width: 37px; height: 37px; place-items: center; margin-bottom: 2px; border: 1px solid #4a404a; border-radius: 11px; color: #db8493; background: #352b34; }
+    .emptyResult svg { width: 15px; height: 15px; }
+    .emptyResult strong { color: #f0e6ec; font-size: 10px; font-weight: 750; }
+    .emptyResult p { max-width: 235px; color: #aea2aa; font-size: 8px; line-height: 1.55; }
+    .epochOutputs { padding-top: 15px; }
+    .epochOutputs article { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 9px; padding: 12px 10px; border: 1px solid #49404a; border-radius: 8px; background: #302b35; }
+    .epochOutputs article + article { margin-top: 8px; }
+    .epochOutputs article > div { display: grid; grid-column: 1; gap: 3px; }
+    .epochOutputs article > div > span { color: #f097a4; font-size: 7px; font-weight: 800; letter-spacing: .12em; }
+    .epochOutputs article small { color: #b5a8b0; font-size: 7px; }
+    .epochOutputs article code { grid-column: 1; grid-row: 2; color: #fff4f7; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: clamp(12px, 1.3vw, 15px); font-weight: 650; overflow-wrap: anywhere; }
+    .epochOutputs article .copyAction { grid-column: 2; grid-row: 1 / span 2; }
+    .utcNote { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; color: #b7aab2; font-size: 8px; }
+    .utcNote svg { width: 11px; height: 11px; color: #f097a4; }
+
+    @media (max-width: 600px) {
+        min-height: 315px;
+        padding: 16px 13px;
+        .localDate { padding-block: 16px 12px; }
+        .localDate strong { font-size: 14px; }
+    }
+}
