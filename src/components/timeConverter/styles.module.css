@@ -1,0 +1,65 @@
+﻿.converter {
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 31px 0 48px;
+    scroll-margin-top: 78px;
+
+    .converterHeader { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 13px; }
+    .sectionLabel { margin-bottom: 3px; color: #ad5266; font-size: 8px; font-weight: 810; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { color: #302932; font-size: clamp(20px, 2.8vw, 26px); font-weight: 790; letter-spacing: -.05em; line-height: 1.12; }
+    .converterHeader > div:first-child > span { display: block; margin-top: 5px; color: #827780; font-size: 9px; }
+    .liveBadge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid #e6dce3; border-radius: 30px; color: #746a71; background: #fff; font-size: 8px; font-weight: 700; white-space: nowrap; }
+    .liveBadge i { width: 6px; height: 6px; border-radius: 50%; background: #4c9b78; box-shadow: 0 0 0 3px rgb(76 155 120 / 14%); }
+    .nowCard { display: grid; grid-template-columns: 1.05fr 1fr; overflow: hidden; border: 1px solid #4d414c; border-radius: 12px; color: #fbf4f8; background: #25212b; box-shadow: 0 12px 32px rgb(48 31 40 / 10%); }
+    .clockReadout { display: grid; align-content: center; gap: 4px; padding: 15px 20px; border-right: 1px solid #443a46; }
+    .clockReadout > span { display: inline-flex; align-items: center; gap: 6px; color: #c1aab6; font-size: 7px; font-weight: 780; letter-spacing: .1em; }
+    .clockReadout > span svg { width: 11px; height: 11px; color: #ff91a1; }
+    .clockReadout b { padding: 2px 5px; border: 1px solid #554651; border-radius: 4px; color: #e7cbd5; font-family: ui-monospace, Consolas, monospace; font-size: 7px; letter-spacing: 0; }
+    .clockReadout time { color: #fff9fb; font-size: clamp(24px, 3vw, 34px); font-weight: 730; letter-spacing: -.06em; line-height: 1.12; font-variant-numeric: tabular-nums; }
+    .clockReadout small { color: #b1a4ad; font-size: 8px; }
+    .nowValues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nowValues > div { display: grid; align-content: center; gap: 4px; min-width: 0; padding: 12px 15px; }
+    .nowValues > div + div { border-left: 1px solid #443a46; }
+    .nowValues > div > span { color: #bc9daa; font-size: 7px; font-weight: 800; letter-spacing: .12em; }
+    .nowValues code { overflow: hidden; color: #f8eef3; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: clamp(11px, 1.4vw, 15px); font-weight: 650; text-overflow: ellipsis; }
+    .nowValues button { display: inline-flex; width: fit-content; align-items: center; gap: 4px; border: 0; color: #e795a3; background: transparent; font-size: 7px; font-weight: 720; }
+    .nowValues button svg { width: 9px; height: 9px; }
+    .modeHeading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 19px; padding-bottom: 9px; }
+    .modeHeading > div:first-child { display: grid; gap: 2px; }
+    .modeHeading > div:first-child p { color: #302932; font-size: 10px; font-weight: 770; }
+    .modeHeading > div:first-child span { color: #8a7e86; font-size: 8px; }
+    .modeControl { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid #e4d9e1; border-radius: 8px; background: #eee8ed; }
+    .modeControl button { display: inline-flex; min-height: 31px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid transparent; border-radius: 6px; color: #796d76; background: transparent; font-size: 8px; font-weight: 700; transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease; }
+    .modeControl button:hover { color: #342a32; }
+    .modeControl button.modeActive { border-color: #e6c8d0; color: #6e3240; background: #fff; box-shadow: 0 1px 4px rgb(50 36 45 / 8%); }
+    .modeControl svg { width: 11px; height: 11px; }
+    .conversionGrid { display: grid; grid-template-columns: minmax(0, .91fr) minmax(0, 1.09fr); align-items: stretch; gap: 12px; }
+    .timezoneTip { display: flex; align-items: center; gap: 7px; margin-top: 9px; color: #837880; font-size: 8px; }
+    .timezoneTip svg { width: 11px; height: 11px; flex: 0 0 auto; color: #47816a; }
+    .copyNotice { position: fixed; z-index: 25; right: 23px; bottom: 22px; max-width: min(350px, calc(100vw - 46px)); padding: 9px 12px; border: 1px solid #594952; border-radius: 7px; color: #fff5f8; background: #342a34; box-shadow: 0 7px 20px rgb(43 29 37 / 17%); font-size: 8px; }
+
+    @media (max-width: 900px) {
+        width: min(760px, calc(100% - 36px));
+        .conversionGrid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+        width: calc(100% - 28px);
+        padding: 24px 0 38px;
+        .converterHeader { align-items: flex-start; }
+        .liveBadge { padding: 5px 7px; font-size: 7px; }
+        .nowCard { grid-template-columns: 1fr; }
+        .clockReadout { border-right: 0; border-bottom: 1px solid #443a46; padding: 13px 14px; }
+        .nowValues > div { padding: 11px 12px; }
+        .modeHeading { align-items: flex-start; flex-direction: column; }
+        .modeControl { width: 100%; }
+        .modeControl button { flex: 1; padding-inline: 5px; font-size: 7px; }
+        .modeControl svg { width: 10px; height: 10px; }
+    }
+
+    @media (max-width: 390px) {
+        width: calc(100% - 22px);
+        .nowValues code { font-size: 10px; }
+        .converterHeader > div:first-child > span { max-width: 235px; }
+    }
+}
