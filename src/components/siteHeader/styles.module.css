@@ -15,7 +15,7 @@
     .brandMark { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid #ed9aa8; border-radius: 11px; color: #3b1821; background: #ef7185; }
     .brandMark svg { width: 16px; height: 16px; }
     .navigation { display: flex; align-items: center; gap: 25px; color: #786d76; font-size: 10px; font-weight: 690; }
-    .navigation a { transition: color 140ms ease; }
+    .navigation a { }
     .navigation a:hover { color: #29242b; }
     .repositoryLink { display: inline-flex; min-height: 34px; flex: 0 0 auto; align-items: center; justify-content: center; gap: 7px; padding: 0 11px; border: 1px solid #ded3db; border-radius: 7px; color: #302a32; background: #fff; font-size: 9px; font-weight: 750; transition: border-color 140ms ease, box-shadow 140ms ease; }
     .repositoryLink:hover { border-color: #d78291; box-shadow: 0 0 0 3px rgb(239 113 133 / 15%); }

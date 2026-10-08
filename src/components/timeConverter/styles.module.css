@@ -29,7 +29,7 @@
     .modeHeading > div:first-child p { color: #302932; font-size: 10px; font-weight: 770; }
     .modeHeading > div:first-child span { color: #8a7e86; font-size: 8px; }
     .modeControl { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid #e4d9e1; border-radius: 8px; background: #eee8ed; }
-    .modeControl button { display: inline-flex; min-height: 31px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid transparent; border-radius: 6px; color: #796d76; background: transparent; font-size: 8px; font-weight: 700; transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease; }
+    .modeControl button { display: inline-flex; min-height: 31px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid transparent; border-radius: 6px; color: #796d76; background: transparent; font-size: 8px; font-weight: 700; transition: border-color 140ms ease, box-shadow 140ms ease; }
     .modeControl button:hover { color: #342a32; }
     .modeControl button.modeActive { border-color: #e6c8d0; color: #6e3240; background: #fff; box-shadow: 0 1px 4px rgb(50 36 45 / 8%); }
     .modeControl svg { width: 11px; height: 11px; }
