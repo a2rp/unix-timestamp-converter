@@ -1,0 +1,32 @@
+﻿.timestampInput {
+    padding: 22px;
+    border: 1px solid #e6dce3;
+    border-radius: 12px;
+    background: #fff;
+
+    .fieldHeading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .fieldHeading > div { display: flex; align-items: center; gap: 10px; }
+    .fieldHeading > svg { width: 15px; height: 15px; color: #be6575; }
+    .fieldNumber { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid #f1d0d7; border-radius: 8px; color: #a14b5e; background: #fff1f4; font-family: ui-monospace, Consolas, monospace; font-size: 9px; font-weight: 750; }
+    h3 { color: #302932; font-size: 13px; font-weight: 770; letter-spacing: -.025em; }
+    .fieldHeading p { margin-top: 2px; color: #867b82; font-size: 9px; }
+    .inputLabel { display: block; margin: 19px 0 6px; color: #6f646b; font-size: 9px; font-weight: 720; }
+    .valueInput { width: 100%; height: 52px; padding: 0 13px; border: 1px solid #ded3dc; border-radius: 8px; outline: 0; color: #302831; background: #fcfafb; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 16px; font-weight: 650; letter-spacing: -.025em; transition: border-color 140ms ease, box-shadow 140ms ease; }
+    .valueInput::placeholder { color: #b5aab1; font-size: 13px; font-weight: 500; }
+    .valueInput:focus { border-color: #d56c7e; box-shadow: 0 0 0 4px rgb(239 113 133 / 14%); }
+    .unitRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; }
+    .unitRow label { color: #71666d; font-size: 9px; font-weight: 710; }
+    select { min-height: 32px; max-width: 185px; padding: 0 25px 0 9px; border: 1px solid #e2d9e0; border-radius: 7px; color: #51474f; background: #fff; font-size: 9px; }
+    .hint { min-height: 29px; margin-top: 7px; color: #8c8188; font-size: 8px; line-height: 1.55; }
+    .quickValues { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 15px; padding-top: 13px; border-top: 1px solid #eee8ec; }
+    .quickValues > span { margin-right: 2px; color: #988b93; font-size: 8px; font-weight: 720; }
+    .quickValues button { display: inline-flex; min-height: 27px; align-items: center; gap: 4px; padding: 0 8px; border: 1px solid #eadfe5; border-radius: 6px; color: #6b5c65; background: #fdfbfd; font-size: 8px; font-weight: 650; transition: border-color 140ms ease, box-shadow 140ms ease; }
+    .quickValues button:hover { border-color: #d98a98; box-shadow: 0 0 0 3px rgb(239 113 133 / 12%); }
+    .quickValues svg { width: 10px; height: 10px; color: #bd6676; }
+
+    @media (max-width: 600px) {
+        padding: 17px 14px;
+        .valueInput { height: 48px; font-size: 14px; }
+        .quickValues { gap: 5px; }
+    }
+}
