@@ -28,6 +28,12 @@ const TimeConverter = () => {
 
     useEffect(() => () => window.clearTimeout(copyTimer.current), []);
 
+    const clearCopyState = useCallback(() => {
+        window.clearTimeout(copyTimer.current);
+        setCopied("");
+        setCopyNotice("");
+    }, []);
+
     const conversion = mode === "timestamp"
         ? parseTimestamp(timestampValue, timestampUnit)
         : parseLocalDateTime(dateValue);
@@ -40,13 +46,18 @@ const TimeConverter = () => {
     const interpretedUnit = conversion.ok && mode === "timestamp" ? conversion.unit : timestampUnit;
 
     const copyValue = useCallback(async (value, label) => {
+        window.clearTimeout(copyTimer.current);
         try {
             await navigator.clipboard.writeText(value);
             setCopied(label);
             setCopyNotice(`${label} copied to clipboard.`);
             window.clearTimeout(copyTimer.current);
-            copyTimer.current = window.setTimeout(() => setCopied(""), 1400);
+            copyTimer.current = window.setTimeout(() => {
+                setCopied("");
+                setCopyNotice("");
+            }, 1400);
         } catch {
+            window.clearTimeout(copyTimer.current);
             setCopied("");
             setCopyNotice("Clipboard access is unavailable in this browser.");
         }
@@ -56,13 +67,13 @@ const TimeConverter = () => {
         const milliseconds = preset === "now" ? Date.now() : knownTimestampMilliseconds[preset];
         const value = timestampUnit === "milliseconds" ? milliseconds : Math.floor(milliseconds / 1000);
         setTimestampValue(String(value));
-        setCopyNotice("");
+        clearCopyState();
     };
 
     const setDatePreset = (preset) => {
         const milliseconds = preset === "now" ? Date.now() : knownTimestampMilliseconds[preset];
         setDateValue(formatDateTimeLocal(new Date(milliseconds)));
-        setCopyNotice("");
+        clearCopyState();
     };
 
     return (
@@ -85,14 +96,14 @@ const TimeConverter = () => {
             <div className={styles.modeHeading}>
                 <div><p>Converter</p><span>Choose an input format</span></div>
                 <div className={styles.modeControl} role="group" aria-label="Conversion direction">
-                    <button type="button" aria-pressed={mode === "timestamp"} className={mode === "timestamp" ? styles.modeActive : ""} onClick={() => { setMode("timestamp"); setCopyNotice(""); }}><FiArrowDownLeft aria-hidden="true" /> Timestamp to date</button>
-                    <button type="button" aria-pressed={mode === "date"} className={mode === "date" ? styles.modeActive : ""} onClick={() => { setMode("date"); setCopyNotice(""); }}><FiArrowUpRight aria-hidden="true" /> Date to timestamp</button>
+                    <button type="button" aria-pressed={mode === "timestamp"} className={mode === "timestamp" ? styles.modeActive : ""} onClick={() => { setMode("timestamp"); clearCopyState(); }}><FiArrowDownLeft aria-hidden="true" /> Timestamp to date</button>
+                    <button type="button" aria-pressed={mode === "date"} className={mode === "date" ? styles.modeActive : ""} onClick={() => { setMode("date"); clearCopyState(); }}><FiArrowUpRight aria-hidden="true" /> Date to timestamp</button>
                 </div>
             </div>
             <div className={styles.conversionGrid}>
                 {mode === "timestamp"
-                    ? <TimestampInput value={timestampValue} onChange={setTimestampValue} unit={timestampUnit} onUnitChange={setTimestampUnit} onPreset={setTimestampPreset} />
-                    : <DateInput value={dateValue} onChange={setDateValue} timezone={currentDetails.timezone} onPreset={setDatePreset} />}
+                    ? <TimestampInput value={timestampValue} onChange={(value) => { setTimestampValue(value); clearCopyState(); }} unit={timestampUnit} onUnitChange={(unit) => { setTimestampUnit(unit); clearCopyState(); }} onPreset={setTimestampPreset} />
+                    : <DateInput value={dateValue} onChange={(value) => { setDateValue(value); clearCopyState(); }} timezone={currentDetails.timezone} onPreset={setDatePreset} />}
                 <TimeResult mode={mode} valid={conversion.ok} error={conversion.error} details={details} epochPair={epochPair} copied={copied} onCopy={copyValue} interpretedUnit={interpretedUnit} />
             </div>
             <p className={styles.timezoneTip}><FiCheck aria-hidden="true" /><span>Seconds are the standard Unix format. Milliseconds include the extra three digits. The live clock updates every second.</span></p>

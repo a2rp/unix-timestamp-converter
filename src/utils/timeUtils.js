@@ -25,8 +25,21 @@ export const parseTimestamp = (input, unit = "auto") => {
 export const parseLocalDateTime = (input) => {
     const value = String(input ?? "").trim();
     if (!value) return { ok: false, error: "Choose a date and time to convert." };
+    const parts = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3}))?)?$/);
+    if (!parts) return { ok: false, error: "Choose a valid local date and time." };
     const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return { ok: false, error: "That date and time is not valid." };
+    const [, year, month, day, hour, minute, second = "0", fraction = ""] = parts;
+    const millisecond = Number(fraction.padEnd(3, "0"));
+    if (
+        Number.isNaN(date.getTime())
+        || date.getFullYear() !== Number(year)
+        || date.getMonth() + 1 !== Number(month)
+        || date.getDate() !== Number(day)
+        || date.getHours() !== Number(hour)
+        || date.getMinutes() !== Number(minute)
+        || date.getSeconds() !== Number(second)
+        || date.getMilliseconds() !== millisecond
+    ) return { ok: false, error: "That local date and time does not exist." };
     return { ok: true, date, milliseconds: date.getTime() };
 };
 

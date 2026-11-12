@@ -36,7 +36,7 @@ Values are held in page memory only. Nothing is uploaded or saved between sessio
 Use Node.js 20.19+ or 22.12+ and npm.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
